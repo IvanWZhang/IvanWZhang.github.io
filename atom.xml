@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Ivan Zhang</title>
+  <title>Ivan Zhang&#39;s Blog</title>
   
-  <subtitle>Be happier</subtitle>
+  <subtitle>A personal blog to mark and memory the footprint of growth.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
