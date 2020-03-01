@@ -37,6 +37,13 @@
 <li>Space complexity:$O(n)/O(n^2)$</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
