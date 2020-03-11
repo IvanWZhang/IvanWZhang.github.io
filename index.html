@@ -230,7 +230,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-03-11 21:18:50 / Modified: 21:18:32" itemprop="dateCreated datePublished" datetime="2020-03-11T21:18:50+08:00">2020-03-11</time>
+              <time title="Created: 2020-03-11 21:18:50 / Modified: 21:22:01" itemprop="dateCreated datePublished" datetime="2020-03-11T21:18:50+08:00">2020-03-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -272,7 +272,7 @@
 <li>Time complexity: $O(n)$</li>
 <li>Space complexity: $O(1)$</li>
 </ul>
-<h2 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two"></a>Solution Two</h2><p><strong>One Pass</strong></p>
+<h2 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two:"></a>Solution Two:</h2><p><strong>One Pass</strong></p>
 <ul>
 <li>Using tow pointers to create a <em>n-length</em> gap</li>
 <li>Moving tow pointers together until the further one reach the end</li>
@@ -282,7 +282,7 @@
 <li>Time complexity: $O(n)$</li>
 <li>Space complexity: $O(1)$</li>
 </ul>
-<h2 id="Solution-Three"><a href="#Solution-Three" class="headerlink" title="Solution Three"></a>Solution Three</h2><p>Using <strong>recursive</strong> method</p>
+<h2 id="Solution-Three"><a href="#Solution-Three" class="headerlink" title="Solution Three:"></a>Solution Three:</h2><p>Using <strong>recursive</strong> method</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeNthFromEnd</span><span class="params">(self, head, n)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">global</span> i </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> head <span class="keyword">is</span> <span class="literal">None</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">            i = <span class="number">0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        head.next = self.removeNthFromEnd(head.next, n)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        i += <span class="number">1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> head.next <span class="keyword">if</span> i == n <span class="keyword">else</span> head</span></pre></td></tr></table></figure>
 <ul>
 <li>Time complexity: $O(n)$</li>

@@ -53,7 +53,7 @@
 <meta property="og:site_name" content="Ivan Zhang&#39;s Blog">
 <meta property="og:description" content="19. Remove Nth Node From End of ListGiven a linked list, remove the n-th node from the end of list and return its head. Example: 1IGiven linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n &amp;#x3D; 2.23After">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-11T13:18:32.903Z">
+<meta property="og:updated_time" content="2020-03-11T13:22:01.631Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/03/11/19.%20Remove%20Nth%20Node%20From%20End%20of%20List/">
@@ -231,7 +231,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-03-11 21:18:50 / Modified: 21:18:32" itemprop="dateCreated datePublished" datetime="2020-03-11T21:18:50+08:00">2020-03-11</time>
+              <time title="Created: 2020-03-11 21:18:50 / Modified: 21:22:01" itemprop="dateCreated datePublished" datetime="2020-03-11T21:18:50+08:00">2020-03-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,7 +273,7 @@
 <li>Time complexity: $O(n)$</li>
 <li>Space complexity: $O(1)$</li>
 </ul>
-<h2 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two"></a>Solution Two</h2><p><strong>One Pass</strong></p>
+<h2 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two:"></a>Solution Two:</h2><p><strong>One Pass</strong></p>
 <ul>
 <li>Using tow pointers to create a <em>n-length</em> gap</li>
 <li>Moving tow pointers together until the further one reach the end</li>
@@ -283,7 +283,7 @@
 <li>Time complexity: $O(n)$</li>
 <li>Space complexity: $O(1)$</li>
 </ul>
-<h2 id="Solution-Three"><a href="#Solution-Three" class="headerlink" title="Solution Three"></a>Solution Three</h2><p>Using <strong>recursive</strong> method</p>
+<h2 id="Solution-Three"><a href="#Solution-Three" class="headerlink" title="Solution Three:"></a>Solution Three:</h2><p>Using <strong>recursive</strong> method</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeNthFromEnd</span><span class="params">(self, head, n)</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">global</span> i </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> head <span class="keyword">is</span> <span class="literal">None</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">            i = <span class="number">0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        head.next = self.removeNthFromEnd(head.next, n)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        i += <span class="number">1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> head.next <span class="keyword">if</span> i == n <span class="keyword">else</span> head</span></pre></td></tr></table></figure>
 <ul>
 <li>Time complexity: $O(n)$</li>
@@ -349,7 +349,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#19-Remove-Nth-Node-From-End-of-List"><span class="nav-number">1.</span> <span class="nav-text">19. Remove Nth Node From End of List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-One"><span class="nav-number">1.1.</span> <span class="nav-text">Solution One:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-Two"><span class="nav-number">1.2.</span> <span class="nav-text">Solution Two</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-Three"><span class="nav-number">1.3.</span> <span class="nav-text">Solution Three</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#19-Remove-Nth-Node-From-End-of-List"><span class="nav-number">1.</span> <span class="nav-text">19. Remove Nth Node From End of List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-One"><span class="nav-number">1.1.</span> <span class="nav-text">Solution One:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-Two"><span class="nav-number">1.2.</span> <span class="nav-text">Solution Two:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-Three"><span class="nav-number">1.3.</span> <span class="nav-text">Solution Three:</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
