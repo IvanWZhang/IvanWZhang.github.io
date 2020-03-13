@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode 13. Roman to Integer</title>
+    <url>/2020/03/13/13.%20Roman%20to%20Integer/</url>
+    <content><![CDATA[<h1 id="13-Roman-to-Integer"><a href="#13-Roman-to-Integer" class="headerlink" title="13. Roman to Integer"></a>13. Roman to Integer</h1><p>Roman numerals are represented by seven different symbols: <code>I</code>, <code>V</code>, <code>X</code>, <code>L</code>, <code>C</code>, <code>D</code> and <code>M</code>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Symbol       Value</span></pre></td></tr><tr><td class="code"><pre><span class="line">I             1</span></pre></td></tr><tr><td class="code"><pre><span class="line">V             5</span></pre></td></tr><tr><td class="code"><pre><span class="line">X             10</span></pre></td></tr><tr><td class="code"><pre><span class="line">L             50</span></pre></td></tr><tr><td class="code"><pre><span class="line">C             100</span></pre></td></tr><tr><td class="code"><pre><span class="line">D             500</span></pre></td></tr><tr><td class="code"><pre><span class="line">M             1000</span></pre></td></tr></table></figure>
+<p>For example, two is written as <code>II</code> in Roman numeral, just two one’s added together. Twelve is written as, <code>XII</code>, which is simply <code>X</code> + <code>II</code>. The number twenty seven is written as <code>XXVII</code>, which is <code>XX</code> + <code>V</code> + <code>II</code>.</p>
+<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not <code>IIII</code>. Instead, the number four is written as <code>IV</code>. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as <code>IX</code>. There are six instances where subtraction is used:</p>
+<ul>
+<li><code>I</code> can be placed before <code>V</code> (5) and <code>X</code> (10) to make 4 and 9. </li>
+<li><code>X</code> can be placed before <code>L</code> (50) and <code>C</code> (100) to make 40 and 90. </li>
+<li><code>C</code> can be placed before <code>D</code> (500) and <code>M</code> (1000) to make 400 and 900.</li>
+</ul>
+<p>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: &quot;MCMXCIV&quot;</span></pre></td></tr><tr><td class="code"><pre><span class="line">Output: 1994</span></pre></td></tr><tr><td class="code"><pre><span class="line">Explanation: M &#x3D; 1000, CM &#x3D; 900, XC &#x3D; 90 and IV &#x3D; 4.</span></pre></td></tr></table></figure>
+<h2 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One:"></a>Solution One:</h2><p>Using the <code>key-value</code> of <strong><em>dict()</em></strong> to realize the hashmap:</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li><p>If the left symbol’s value smaller than right one, means subtraction.</p>
+</li>
+<li><p>Else, add the value to the result.</p>
+</li>
+</ul>
+<h3 id="Original"><a href="#Original" class="headerlink" title="Original"></a>Original</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">romanToInt</span><span class="params">(self, s: str)</span> -&gt; int:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="comment"># use dict as the hashmap</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        dic = &#123;<span class="string">'I'</span>:<span class="number">1</span>,<span class="string">'V'</span>:<span class="number">5</span>,<span class="string">'X'</span>:<span class="number">10</span>,<span class="string">'L'</span>:<span class="number">50</span>,<span class="string">'C'</span>:<span class="number">100</span>,<span class="string">'D'</span>:<span class="number">500</span>,<span class="string">'M'</span>:<span class="number">1000</span>&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">        res_Int = <span class="number">0</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> range(len(s)<span class="number">-1</span>):</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">if</span> dic[s[index]] &lt; dic[s[index+<span class="number">1</span>]]:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                res_Int -= dic[s[index]]</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">else</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                res_Int += dic[s[index]]</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">return</span> res_Int + dic[s[<span class="number">-1</span>]] <span class="comment"># add the last one</span></span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(n)$</li>
+<li>Space complexity: $O(1)$</li>
+</ul>
+<h3 id="Modified"><a href="#Modified" class="headerlink" title="Modified"></a>Modified</h3><p>Using <code>enumerate()</code> to simplified the code.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">romanToInt</span><span class="params">(self, s: str)</span> -&gt; int:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        dic = &#123;<span class="string">"I"</span>: <span class="number">1</span>, <span class="string">"V"</span>: <span class="number">5</span>, <span class="string">"X"</span>: <span class="number">10</span>, <span class="string">"L"</span>: <span class="number">50</span>, <span class="string">"C"</span>: <span class="number">100</span>, <span class="string">"D"</span>: <span class="number">500</span>, <span class="string">"M"</span>: <span class="number">1000</span>&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">        num = <span class="number">0</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">for</span> i, r <span class="keyword">in</span> enumerate(s):</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">try</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                <span class="keyword">if</span> dic[r] &gt;= dic[s[i+<span class="number">1</span>]]:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                    num += dic[r]</span></pre></td></tr><tr><td class="code"><pre><span class="line">                <span class="keyword">else</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                    num -= dic[r]</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">except</span> IndexError:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                <span class="keyword">return</span> num + dic[r]</span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(n)$</li>
+<li>Space complexity: $O(1)$</li>
+</ul>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 23. Merge k Sorted Lists</title>
     <url>/2020/03/12/23.%20Merge%20k%20Sorted%20Lists/</url>
     <content><![CDATA[<h1 id="23-Merge-k-Sorted-Lists"><a href="#23-Merge-k-Sorted-Lists" class="headerlink" title="23. Merge k Sorted Lists"></a>23. Merge k Sorted Lists</h1><p>Merge <em>k</em> sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p>
