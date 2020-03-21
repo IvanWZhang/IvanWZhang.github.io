@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode 104. Maximum Depth of Binary Tree</title>
+    <url>/2020/03/21/104.%20Maximum%20Depth%20of%20Binary%20Tree/</url>
+    <content><![CDATA[<h1 id="104-Maximum-Depth-of-Binary-Tree"><a href="#104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="104. Maximum Depth of Binary Tree"></a>104. Maximum Depth of Binary Tree</h1><p>Given a binary tree, find its maximum depth.</p>
+<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+<p><strong>Note:</strong> A leaf is a node with no children.</p>
+<p><strong>Example:</strong></p>
+<p>Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">  3</span></pre></td></tr><tr><td class="code"><pre><span class="line"> &#x2F; \</span></pre></td></tr><tr><td class="code"><pre><span class="line">9  20</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#x2F;  \</span></pre></td></tr><tr><td class="code"><pre><span class="line"> 15   7</span></pre></td></tr></table></figure>
+<p>return its depth = 3.</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p><strong>python的list实际上是列表，只是可以作为栈来使用。所以新元素进来的时候是放后面的，pop(0)是从头部取元素,pop()是从尾部取元素 ————&gt; 以此来区别实现队列和栈的功能。</strong></p>
+<h2 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One:"></a>Solution One:</h2><p>Using Recursive strategy to ————</p>
+<p>realize DFS</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment"># class TreeNode:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">#     def __init__(self, x):</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">#         self.val = x</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">#         self.left = None</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">#         self.right = None</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span><span class="params">(self, root)</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">if</span> root <span class="keyword">is</span> <span class="literal">None</span>: </span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="number">0</span> </span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">else</span>: </span></pre></td></tr><tr><td class="code"><pre><span class="line">            left_height = self.maxDepth(root.left) </span></pre></td></tr><tr><td class="code"><pre><span class="line">            right_height = self.maxDepth(root.right) </span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">return</span> max(left_height, right_height) + <span class="number">1</span></span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(n)$</li>
+<li>Space complexity: $O(n)$</li>
+</ul>
+<p>After simplified</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span><span class="params">(self, root: TreeNode)</span> -&gt; int:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> <span class="keyword">not</span> root <span class="keyword">else</span> max(self.maxDepth(root.left),self.maxDepth(root.right))+<span class="number">1</span></span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(n)$</li>
+<li>Space complexity: $O(n)$</li>
+</ul>
+<h2 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two:"></a>Solution Two:</h2><p>BFS with non-recursive</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">从根结点开始，根结点入列后，只要队列不空，每轮处理时，先得到队列中顶点的数目，这表示的是当前层顶点的数目。仅对这些顶点全部出列然后将它们的子结点全部入列，这样就完成了一次while循环，处理的都是同一层顶点。此时队列中的顶点都是下一层的，下一次while循环处理的自然就是下一层的顶点了。</span></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span><span class="params">(self, root: TreeNode)</span> -&gt; int:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="comment"># BFS</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">if</span> root <span class="keyword">is</span> <span class="literal">None</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        queue = [(<span class="number">1</span>, root)]</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">while</span> queue:</span></pre></td></tr><tr><td class="code"><pre><span class="line">            depth, node = queue.pop(<span class="number">0</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">if</span> node.left:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                queue.append((depth+<span class="number">1</span>,node.left))</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">if</span> node.right:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                queue.append((depth+<span class="number">1</span>,node.right))</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">return</span> depth</span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(n)$</li>
+<li>Space complexity: $O(n)$</li>
+</ul>
+<h2 id="Solution-Three"><a href="#Solution-Three" class="headerlink" title="Solution Three:"></a>Solution Three:</h2><p>DFS with non-recursive</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DFS实现前序遍历:每个节点记录其所在深度,DFS过程不断比较更新最大深度,记录当前节点所在深度.当前节点的子节点入栈，同时深度+1</span></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span><span class="params">(self, root: TreeNode)</span> -&gt; int:</span>    </span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="comment"># DFS</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">if</span> root <span class="keyword">is</span> <span class="literal">None</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        stack = [(<span class="number">1</span>, root)]</span></pre></td></tr><tr><td class="code"><pre><span class="line">        depth = <span class="number">0</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">while</span> stack:</span></pre></td></tr><tr><td class="code"><pre><span class="line">            cur_dep, node = stack.pop()</span></pre></td></tr><tr><td class="code"><pre><span class="line">            depth = max(depth, cur_dep)</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">if</span> node.right:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                stack.append((cur_dep+<span class="number">1</span>,node.right))</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">if</span> node.left:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                stack.append((cur_dep+<span class="number">1</span>,node.left))</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">return</span> depth</span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(n)$</li>
+<li>Space complexity: $O(n)$</li>
+</ul>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 101. Symmetric Tree</title>
     <url>/2020/03/20/101.%20Symmetric%20Tree/</url>
     <content><![CDATA[<h1 id="101-Symmetric-Tree"><a href="#101-Symmetric-Tree" class="headerlink" title="101. Symmetric Tree"></a>101. Symmetric Tree</h1><p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
