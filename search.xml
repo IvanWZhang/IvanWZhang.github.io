@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode 455. Assign Cookies</title>
+    <url>/2020/03/27/455.%20Assign%20Cookies/</url>
+    <content><![CDATA[<h1 id="455-Assign-Cookies"><a href="#455-Assign-Cookies" class="headerlink" title="455. Assign Cookies"></a>455. Assign <strong>Cookies</strong></h1><p>Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child $i$ has a greed factor $g_i$, which is the minimum size of a cookie that the child will be content with; and each cookie $j$ has a size $s_j$. If $s_j$ &gt;= $g_i$, we can assign the cookie $j$ to the child $i$, and the child $i$ will be content. Your goal is to maximize the number of your content children and output the maximum number.</p>
+<p>$Note$:<br>You may assume the greed factor is always positive.<br>You cannot assign more than one cookie to one child.</p>
+<p><strong>Example 1</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: [1,2,3], [1,1]</span></pre></td></tr><tr><td class="code"><pre><span class="line">Output: 1</span></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: [1,2], [1,2,3]</span></pre></td></tr><tr><td class="code"><pre><span class="line">Output: 2</span></pre></td></tr></table></figure>
+<h2 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One:"></a>Solution One:</h2><p>Two pointer style</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findContentChildren</span><span class="params">(self, g: List[int], s: List[int])</span> -&gt; int:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        g, s = sorted(g), sorted(s)</span></pre></td></tr><tr><td class="code"><pre><span class="line">        G, S, i, j = len(g), len(s), <span class="number">0</span>, <span class="number">0</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">while</span> i&lt;G <span class="keyword">and</span> j&lt;S:</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">if</span> g[i] &lt;= s[j]:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                i = i+<span class="number">1</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">            j = j+<span class="number">1</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">return</span> i</span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(nlog(n))$</li>
+<li>Space complexity: $O(1)$</li>
+</ul>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 392. Is Subsequence</title>
     <url>/2020/03/26/392.%20Is%20Subsequence/</url>
     <content><![CDATA[<h1 id="392-Is-Subsequence"><a href="#392-Is-Subsequence" class="headerlink" title="392. Is Subsequence"></a>392. Is Subsequence</h1><p>Given a string <code>s</code> and a string <code>t</code>, check if <code>s</code> is subsequence of <code>t</code>.</p>
