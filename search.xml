@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode 03. 数组中重复的数字</title>
+    <url>/2020/03/31/03.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</url>
+    <content><![CDATA[<h1 id="03-数组中重复的数字"><a href="#03-数组中重复的数字" class="headerlink" title="03. 数组中重复的数字"></a>03. 数组中重复的数字</h1><p>找出数组中重复的数字。</p>
+<p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p>
+<p><strong>Example 1</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[2, 3, 1, 0, 2, 5, 3]</span></pre></td></tr><tr><td class="code"><pre><span class="line">输出：2 或 3</span></pre></td></tr></table></figure>
+<p><strong>限制：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2 &lt;&#x3D; n &lt;&#x3D; 100000</span></pre></td></tr></table></figure>
+<h2 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One:"></a>Solution One:</h2><ul>
+<li><strong>空间优先</strong></li>
+</ul>
+<p>先排序，然后查找邻元素是否有相同的，存在重复，返回结果。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findRepeatNumber</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="comment"># solution one</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        nums.sort()</span></pre></td></tr><tr><td class="code"><pre><span class="line">        pre = nums[<span class="number">0</span>]</span></pre></td></tr><tr><td class="code"><pre><span class="line">        n = len(nums)</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n):</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">if</span> pre == nums[i]:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                <span class="keyword">return</span> pre</span></pre></td></tr><tr><td class="code"><pre><span class="line">            pre = nums[i]</span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(nlogn)$</li>
+<li>Space complexity: $O(1)$</li>
+</ul>
+<h2 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two"></a>Solution Two</h2><ul>
+<li><strong>时间优先</strong></li>
+</ul>
+<p>遍历整个数组，数字没有出现过将其加入哈希表；如果在哈希表中则直接返回。</p>
+<p><code>dict()</code>实现</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findRepeatNumber</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="comment"># solution two_1</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        repeatDict = &#123;&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">if</span> num <span class="keyword">not</span> <span class="keyword">in</span> repeatDict:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                repeatDict[num] = <span class="number">1</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">else</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                <span class="keyword">return</span> num</span></pre></td></tr></table></figure>
+<p><code>set()</code>实现</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findRepeatNumber</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    	<span class="comment"># solution two_2</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        repeatSet = set() </span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">if</span> num <span class="keyword">in</span> repeatSet:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                <span class="keyword">return</span> num</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">else</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                repeatSet.add(num)</span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(n)$</li>
+<li>Space complexity: $O(n)$</li>
+</ul>
+<h2 id="Solution-Three"><a href="#Solution-Three" class="headerlink" title="Solution Three:"></a>Solution Three:</h2><ul>
+<li><strong>时间，空间均最优</strong></li>
+</ul>
+<blockquote>
+<p>数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。</p>
+</blockquote>
+<p>这意味着，<code>len(set(nums))</code>&lt;<code>len(nums)</code>（伪代码） ——&gt; 使得位置 $i$ 处放元素 $i$ ，若处理后元素不在对应位置，说明重复并返回。</p>
+<p>可以视作 <strong>原地哈希</strong></p>
+<p>style_1</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findRepeatNumber</span><span class="params">(self, nums)</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="comment"># solution three_1</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">while</span> nums[i] != i:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                <span class="keyword">if</span> nums[nums[i]] == nums[i]:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                    <span class="keyword">return</span> nums[i]</span></pre></td></tr><tr><td class="code"><pre><span class="line">                nums[nums[i]] , nums[i] = nums[i] , nums[nums[i]]</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span></pre></td></tr></table></figure>
+<p>style_2</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findRepeatNumber</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="comment"># solution three_2</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        n=len(nums)</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span></pre></td></tr><tr><td class="code"><pre><span class="line">            index=nums[i] % n <span class="keyword">if</span> nums[i]&gt;=n <span class="keyword">else</span> nums[i]</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">if</span> nums[index]&gt;=n:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                <span class="keyword">return</span> index</span></pre></td></tr><tr><td class="code"><pre><span class="line">            <span class="keyword">else</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">                nums[index]+=n</span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(n)$</li>
+<li>Space complexity: $O(1)$</li>
+</ul>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>set()和dict()类似，也是一组key的集合，但不存储value。</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 44. Wildcard Matching</title>
     <url>/2020/03/30/44.%20Wildcard%20Matching/</url>
     <content><![CDATA[<h1 id="44-Wildcard-Matching"><a href="#44-Wildcard-Matching" class="headerlink" title="44. Wildcard Matching"></a>44. Wildcard Matching</h1><ul>
