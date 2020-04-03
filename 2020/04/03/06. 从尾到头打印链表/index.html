@@ -45,18 +45,18 @@
   };
 </script>
 
-  <meta name="description" content="13. Roman to IntegerWrite a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string &amp;quot;&amp;quot;. Example 1: 1Input: [&amp;quot;">
+  <meta name="description" content="06. 从尾到头打印链表输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。 Example 1: 1输入：head &amp;#x3D; [1,3,2]2输出：[2,3,1] 1限制20 &amp;lt;&amp;#x3D; 链表长度 &amp;lt;&amp;#x3D; 10000 Solution One: Print reversely  1class Solution:2    def reversePrint">
 <meta name="keywords" content="LeetCode,Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 14. Longest Common Prefix">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;14&#x2F;14.%20Longest%20Common%20Prefix&#x2F;index.html">
+<meta property="og:title" content="LeetCode 06. 从尾到头打印链表">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;03&#x2F;06.%20%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8&#x2F;index.html">
 <meta property="og:site_name" content="Ivan Zhang&#39;s Blog">
-<meta property="og:description" content="13. Roman to IntegerWrite a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string &amp;quot;&amp;quot;. Example 1: 1Input: [&amp;quot;">
+<meta property="og:description" content="06. 从尾到头打印链表输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。 Example 1: 1输入：head &amp;#x3D; [1,3,2]2输出：[2,3,1] 1限制20 &amp;lt;&amp;#x3D; 链表长度 &amp;lt;&amp;#x3D; 10000 Solution One: Print reversely  1class Solution:2    def reversePrint">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-14T13:54:16.989Z">
+<meta property="og:updated_time" content="2020-04-03T13:12:09.241Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/03/14/14.%20Longest%20Common%20Prefix/">
+<link rel="canonical" href="http://yoursite.com/2020/04/03/06.%20%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/">
 
 
 <script id="page-configurations">
@@ -70,7 +70,7 @@
   };
 </script>
 
-  <title>LeetCode 14. Longest Common Prefix | Ivan Zhang's Blog</title>
+  <title>LeetCode 06. 从尾到头打印链表 | Ivan Zhang's Blog</title>
   
 
 
@@ -207,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/14/14.%20Longest%20Common%20Prefix/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/06.%20%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -220,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LeetCode 14. Longest Common Prefix
+          LeetCode 06. 从尾到头打印链表
         </h1>
 
         <div class="post-meta">
@@ -231,7 +231,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-03-14 21:54:34 / Modified: 21:54:16" itemprop="dateCreated datePublished" datetime="2020-03-14T21:54:34+08:00">2020-03-14</time>
+              <time title="Created: 2020-04-03 21:13:02 / Modified: 21:12:09" itemprop="dateCreated datePublished" datetime="2020-04-03T21:13:02+08:00">2020-04-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,44 +256,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="13-Roman-to-Integer"><a href="#13-Roman-to-Integer" class="headerlink" title="13. Roman to Integer"></a>13. Roman to Integer</h1><p>Write a function to find the longest common prefix string amongst an array of strings.</p>
-<p>If there is no common prefix, return an empty string <code>&quot;&quot;</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Output: &quot;fl&quot;</span></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Output: &quot;&quot;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Explanation: There is no common prefix among the input strings.</span></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<p>All given inputs are in lowercase letters <code>a-z</code>.</p>
-<h2 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One:"></a>Solution One:</h2><p>Using <code>zip()</code> and <code>set()</code></p>
-<ul>
-<li><a href="https://docs.python.org/3.7/library/functions.html#zip" target="_blank" rel="noopener"><code>zip()</code></a>:Returns an iterator of tuples, where the <em>i</em>-th tuple contains the <em>i</em>-th element from each of the argument sequences or iterables.</li>
-<li><a href="https://docs.python.org/3.7/library/stdtypes.html#set" target="_blank" rel="noopener"><code>set()</code></a>:Removing duplicates from the sequence(tuple).</li>
+        <h1 id="06-从尾到头打印链表"><a href="#06-从尾到头打印链表" class="headerlink" title="06. 从尾到头打印链表"></a>06. 从尾到头打印链表</h1><p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</p>
+<p><strong>Example 1</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">输入：head &#x3D; [1,3,2]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">输出：[2,3,1]</span></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">限制</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">0 &lt;&#x3D; 链表长度 &lt;&#x3D; 10000</span></pre></td></tr></table></figure>
+<h2 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One:"></a>Solution One:</h2><ul>
+<li><strong>Print reversely</strong></li>
 </ul>
-<p>When the len(set) == 1, which means elements are the same, add to the result.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestCommonPrefix</span><span class="params">(self, strs: List[str])</span> -&gt; str:</span>   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        res = <span class="string">''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> zip(*strs):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> len(set(i)) == <span class="number">1</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">                res += i[<span class="number">0</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">else</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">break</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> res</span></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reversePrint</span><span class="params">(self, head: ListNode)</span> -&gt; List[int]:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        resList = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">while</span> head:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">            resList.append(head.val)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            head = head.next</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> resList[::<span class="number">-1</span>]</span></pre></td></tr></table></figure>
+<p>Note: Fastest one</p>
 <ul>
 <li>Time complexity: $O(n)$</li>
 <li>Space complexity: $O(n)$</li>
 </ul>
-<h2 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two:"></a>Solution Two:</h2><p>Base on the idea of $LCP(S1…Sn)=LCP(LCP(LCP(S1,S2),S3),…Sn)$</p>
-<p>Note: </p>
-<ul>
-<li>Using the ‘from behind to front’ will reduce comparison for  every first element and save the time. Otherwise, solution one has better performance.</li>
-<li><code>list[:-1]</code> is easy to remove the last element which is not the same.</li>
-<li><a href="https://docs.python.org/3.7/library/stdtypes.html?highlight=find#str.find" target="_blank" rel="noopener"><code>str.find()</code></a>:Return the lowest index in the string where substring <em>sub</em> is found within the slice <code>s[start:end]</code>.</li>
+<h2 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two:"></a>Solution Two:</h2><ul>
+<li><strong>Recursion</strong></li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestCommonPrefix</span><span class="params">(self, strs: List[str])</span> -&gt; str:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> len(strs) == <span class="number">0</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="string">''</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        res = strs[<span class="number">0</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(strs)):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">while</span> strs[i].find(res) != <span class="number">0</span> :</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">                res = res[:<span class="number">-1</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> res</span></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reversePrint</span><span class="params">(self, head: ListNode)</span> -&gt; List[int]:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head: </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> self.reversePrint(head.next) + [head.val]</span></pre></td></tr></table></figure>
+<p>Simplified</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reversePrint</span><span class="params">(self, head: ListNode)</span> -&gt; List[int]:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> self.reversePrint(head.next) + [head.val] <span class="keyword">if</span> head <span class="keyword">else</span> []</span></pre></td></tr></table></figure>
+<p>Note: The time consuming is pretty awful.</p>
 <ul>
 <li>Time complexity: $O(n)$</li>
-<li>Space complexity: $O(1)$</li>
+<li>Space complexity: $O(n)$  // 递归将占用链表长度的栈空间</li>
 </ul>
-<h2 id="Solution-Three"><a href="#Solution-Three" class="headerlink" title="Solution Three"></a>Solution Three</h2><p>To simulate the horizontal scan</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestCommonPrefix</span><span class="params">(self, strs: List[str])</span> -&gt; str:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> strs:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="string">""</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(strs[<span class="number">0</span>])):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            c = strs[<span class="number">0</span>][i]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(len(strs)):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">if</span> i == len(strs[j]) <span class="keyword">or</span> strs[j][i] != c:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">                    <span class="keyword">return</span> strs[<span class="number">0</span>][: i]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>]</span></pre></td></tr></table></figure>
+<h2 id="Solution-Three"><a href="#Solution-Three" class="headerlink" title="Solution Three:"></a>Solution Three:</h2><ul>
+<li><strong>Original Stack Style</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reversePrint</span><span class="params">(self, head: ListNode)</span> -&gt; List[int]:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        stack = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">while</span> head: <span class="comment"># push</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">            stack.append(head.val)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            head = head.next</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        res = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">while</span> stack: <span class="comment"># pop</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">            res.append(stack.pop())</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> res</span></pre></td></tr></table></figure>
 <ul>
-<li>Time complexity: $O(n^2)$</li>
-<li>Space complexity: $O(1)$</li>
+<li>Time complexity: $O(n)$</li>
+<li>Space complexity: $O(n)$</li>
 </ul>
-<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><p>Using divide and conquer or Binary search can also solve the task.</p>
 
     </div>
 
@@ -313,13 +307,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/13/13.%20Roman%20to%20Integer/" rel="prev" title="LeetCode 13. Roman to Integer">
-      <i class="fa fa-chevron-left"></i> LeetCode 13. Roman to Integer
+    <a href="/2020/04/02/05.%20%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/" rel="prev" title="LeetCode 05. 替换空格">
+      <i class="fa fa-chevron-left"></i> LeetCode 05. 替换空格
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/15/20.%20Valid%20Parentheses/" rel="next" title="LeetCode 20. Valid Parentheses">
-      LeetCode 20. Valid Parentheses <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -357,7 +348,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#13-Roman-to-Integer"><span class="nav-number">1.</span> <span class="nav-text">13. Roman to Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-One"><span class="nav-number">1.1.</span> <span class="nav-text">Solution One:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-Two"><span class="nav-number">1.2.</span> <span class="nav-text">Solution Two:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-Three"><span class="nav-number">1.3.</span> <span class="nav-text">Solution Three</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Appendix"><span class="nav-number">1.4.</span> <span class="nav-text">Appendix</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#06-从尾到头打印链表"><span class="nav-number">1.</span> <span class="nav-text">06. 从尾到头打印链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-One"><span class="nav-number">1.1.</span> <span class="nav-text">Solution One:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-Two"><span class="nav-number">1.2.</span> <span class="nav-text">Solution Two:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-Three"><span class="nav-number">1.3.</span> <span class="nav-text">Solution Three:</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
