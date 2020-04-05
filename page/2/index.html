@@ -205,6 +205,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/25/122.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Ivan Zhang">
+      <meta itemprop="description" content="Be Brave and Keep Moving">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ivan Zhang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/25/122.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/" class="post-title-link" itemprop="url">LeetCode 122. Best Time to Buy and Sell Stock II</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-25 11:39:14 / Modified: 11:38:59" itemprop="dateCreated datePublished" datetime="2020-03-25T11:39:14+08:00">2020-03-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="122-Best-Time-to-Buy-and-Sell-Stock-II"><a href="#122-Best-Time-to-Buy-and-Sell-Stock-II" class="headerlink" title="122. Best Time to Buy and Sell Stock II"></a>122. Best Time to Buy and Sell Stock II</h1><p>Say you have an array for which the $i^{th}$ element is the price of a given stock on day $i$.</p>
+<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).</p>
+<p>Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).</p>
+<p><strong>Example 1</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Input: [7,1,5,3,6,4]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Output: 7</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Explanation: Buy on day 2 (price &#x3D; 1) and sell on day 3 (price &#x3D; 5), profit &#x3D; 5-1 &#x3D; 4.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Then buy on day 4 (price &#x3D; 3) and sell on day 5 (price &#x3D; 6), profit &#x3D; 6-3 &#x3D; 3.</span></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Input: [1,2,3,4,5]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Output: 4</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Explanation: Buy on day 1 (price &#x3D; 1) and sell on day 5 (price &#x3D; 5), profit &#x3D; 5-1 &#x3D; 4.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are</span></pre></td></tr></table></figure>
+<h2 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One:"></a>Solution One:</h2><p>Greedy algorithm. </p>
+<p>From the greedy perspective, the maximum profit is made up by each small profits. So, in this case, it is the accumulation of subtracting the adjacent two days when the result is positive.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span><span class="params">(self, prices: List[int])</span> -&gt; int:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        L = len(prices)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        max_profit = <span class="number">0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> L &lt; <span class="number">2</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> max_profit</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(L<span class="number">-1</span>):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> prices[i] &lt; prices[i+<span class="number">1</span>]:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">                max_profit += prices[i+<span class="number">1</span>] - prices[i]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> max_profit</span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(n)$</li>
+<li>Space complexity: $O(1)$</li>
+</ul>
+<h2 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two:"></a>Solution Two:</h2><p> Dynamic programming <a href="https://ivanwzhang.github.io/2020/03/06/123.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20III/" target="_blank" rel="noopener">My previous essay</a> Also <strong><em>labuladong’s answer</em></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span><span class="params">(self, prices: List[int])</span> -&gt; int:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        L = len(prices)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        sell, buy = <span class="number">0</span>, float(<span class="string">'-inf'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(L):</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            temp = sell</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">            sell = max(sell, buy + prices[i])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            buy = max(buy, temp - prices[i])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> sell</span></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity: $O(n)$</li>
+<li>Space complexity: $O(1)$</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/24/99.%20Recover%20Binary%20Search%20Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1158,124 +1247,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/20.%20Valid%20Parentheses/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Ivan Zhang">
-      <meta itemprop="description" content="Be Brave and Keep Moving">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ivan Zhang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/15/20.%20Valid%20Parentheses/" class="post-title-link" itemprop="url">LeetCode 20. Valid Parentheses</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-15 10:32:59 / Modified: 10:32:47" itemprop="dateCreated datePublished" datetime="2020-03-15T10:32:59+08:00">2020-03-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="20-Valid-Parentheses"><a href="#20-Valid-Parentheses" class="headerlink" title="20. Valid Parentheses"></a>20. Valid Parentheses</h1><p>Given a string containing just the characters <code>(</code>, <code>)</code>, <code>{</code>, <code>}</code>, <code>[</code> and <code>]</code>, determine if the input string is valid.</p>
-<p>An input string is valid if:</p>
-<ol>
-<li>Open brackets must be closed by the same type of brackets.</li>
-<li>Open brackets must be closed in the correct order.<br>Note that an empty string is also considered valid.</li>
-</ol>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Input: &quot;&#123;[]&#125;&quot;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Output: true</span></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Input: &quot;([)]&quot;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Output: false</span></pre></td></tr></table></figure>
-<h2 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One:"></a>Solution One:</h2><p>Non-algorithmic solution:</p>
-<p>using build-in function(<code>while...in...</code> &amp; <code>replace()</code>) to locate and change the legal parentheses.</p>
-<p>Note:</p>
-<p>The time complexity is $O(n)$, however, the efficiency is unsatisfying due to the compelling and execution parts. </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, s: str)</span> -&gt; bool:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> len(s) % <span class="number">2</span> != <span class="number">0</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">while</span> <span class="string">'&#123;&#125;'</span> <span class="keyword">in</span> s <span class="keyword">or</span> <span class="string">'()'</span> <span class="keyword">in</span> s <span class="keyword">or</span> <span class="string">'[]'</span> <span class="keyword">in</span> s:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            s = s.replace(<span class="string">'&#123;&#125;'</span>, <span class="string">''</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">            s = s.replace(<span class="string">'[]'</span>, <span class="string">''</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            s = s.replace(<span class="string">'()'</span>, <span class="string">''</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> s == <span class="string">''</span></span></pre></td></tr></table></figure>
-<ul>
-<li>Time complexity: $O(n^2)$</li>
-<li>Space complexity: $O(1)$</li>
-</ul>
-<h2 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two:"></a>Solution Two:</h2><p>Direct implementation with stack</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, s: str)</span> -&gt; bool:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> len(s) % <span class="number">2</span> != <span class="number">0</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> s == <span class="string">""</span>: <span class="keyword">return</span> <span class="literal">True</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        stack = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> s:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> c == <span class="string">"("</span> <span class="keyword">or</span> c == <span class="string">"["</span> <span class="keyword">or</span> c == <span class="string">"&#123;"</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">                stack.append(c)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">elif</span> <span class="keyword">not</span> stack <span class="keyword">or</span> c == <span class="string">")"</span> <span class="keyword">and</span> stack[<span class="number">-1</span>] != <span class="string">"("</span> <span class="keyword">or</span> c == <span class="string">"]"</span> <span class="keyword">and</span> stack[<span class="number">-1</span>] != <span class="string">"["</span>  <span class="keyword">or</span> c == <span class="string">"&#125;"</span> <span class="keyword">and</span> stack[<span class="number">-1</span>] != <span class="string">"&#123;"</span>: </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">else</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">                stack.pop()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> len(stack) == <span class="number">0</span></span></pre></td></tr></table></figure>
-<ul>
-<li>Time complexity: $O(n)$</li>
-<li>Space complexity: $O(1)$</li>
-</ul>
-<h2 id="Solution-Three"><a href="#Solution-Three" class="headerlink" title="Solution Three:"></a>Solution Three:</h2><p>Using hashmap and assistant-stack</p>
-<h3 id="Original"><a href="#Original" class="headerlink" title="Original"></a>Original</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, s: str)</span> -&gt; bool:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> len(s) % <span class="number">2</span> != <span class="number">0</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        dic = &#123;<span class="string">'('</span>:<span class="string">')'</span>,<span class="string">'['</span>:<span class="string">']'</span>,<span class="string">'&#123;'</span>:<span class="string">'&#125;'</span>&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        stack = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> s:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> dic:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">                stack.append(i)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">else</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">if</span> len(stack) == <span class="number">0</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">elif</span> i == dic[stack.pop()]:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">                    <span class="keyword">pass</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">else</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> len(stack) == <span class="number">0</span></span></pre></td></tr></table></figure>
-<ul>
-<li>Time complexity: $O(n)$</li>
-<li>Space complexity: $O(1)$</li>
-</ul>
-<h3 id="Modified"><a href="#Modified" class="headerlink" title="Modified"></a>Modified</h3><p>Using hashmap and assistant-stack</p>
-<ul>
-<li>If c is the left parenthesis, pushed into the stack;</li>
-<li>Otherwise, if the top stack-element does not correspond to the current parenthesis c, return false in advance(which improve algorithm efficiency).</li>
-</ul>
-<p>Note:</p>
-<p>When the stack is empty, stack.pop() will report an error; therefore, assigning an initial value to the stack ?, and establish key: ′? ′, Value: ′ in the hash table.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, s: str)</span> -&gt; bool:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> len(s) % <span class="number">2</span> != <span class="number">0</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        dic = &#123;<span class="string">'&#123;'</span>: <span class="string">'&#125;'</span>,  <span class="string">'['</span>: <span class="string">']'</span>, <span class="string">'('</span>: <span class="string">')'</span>, <span class="string">'?'</span>: <span class="string">'?'</span>&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        stack = [<span class="string">'?'</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> s:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> c <span class="keyword">in</span> dic: </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">                stack.append(c)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">elif</span> dic[stack.pop()] != c: </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">return</span> <span class="literal">False</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> len(stack) == <span class="number">1</span></span></pre></td></tr></table></figure>
-<ul>
-<li>Time complexity: $O(n)$</li>
-<li>Space complexity: $O(1)$</li>
-</ul>
-<h2 id="Solution-Four"><a href="#Solution-Four" class="headerlink" title="Solution Four:"></a>Solution Four:</h2><p>Another idea using stack comparison(reversal compare)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, s: str)</span> -&gt; bool:</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> len(s) % <span class="number">2</span> != <span class="number">0</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        d = &#123;<span class="string">")"</span>: <span class="string">"("</span>, <span class="string">"]"</span>:<span class="string">"["</span>, <span class="string">"&#125;"</span>: <span class="string">"&#123;"</span>&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        l = []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> s:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> d.get(i) <span class="keyword">is</span> <span class="literal">None</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">                l.append(i)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">elif</span> len(l) == <span class="number">0</span> <span class="keyword">or</span> d.get(i) != l[<span class="number">-1</span>]:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">elif</span> d.get(i) == l[<span class="number">-1</span>]:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">                l.pop()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">if</span> len(l) == <span class="number">0</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">else</span>:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span></pre></td></tr></table></figure>
-<ul>
-<li>Time complexity: $O(n)$</li>
-<li>Space complexity: $O(1)$</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1326,7 +1297,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
