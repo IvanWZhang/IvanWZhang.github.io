@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-08T01:46:49.997Z</updated>
+  <updated>2020-05-08T02:08:09.463Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,21 +17,20 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Local Image Test</title>
-    <link href="http://yoursite.com/2020/05/08/Local%20Image%20Test/"/>
-    <id>http://yoursite.com/2020/05/08/Local%20Image%20Test/</id>
-    <published>2020-05-08T01:43:46.422Z</published>
-    <updated>2020-05-08T01:46:49.997Z</updated>
+    <title>local test</title>
+    <link href="http://yoursite.com/2020/05/08/local%20test/"/>
+    <id>http://yoursite.com/2020/05/08/local%20test/</id>
+    <published>2020-05-08T02:07:26.901Z</published>
+    <updated>2020-05-08T02:08:09.463Z</updated>
     
-    <content type="html"><![CDATA[<p>Local Image Test</p><p><img src="C:\Users\IvanZhang\ivanwzhangblog\source\_posts\0002.png" alt="0002"></p>]]></content>
+    <content type="html"><![CDATA[<p>Local test</p><p><a href="https://postimg.cc/HJbC66Yc" target="_blank" rel="noopener"><img src="https://i.postimg.cc/jjFdd1BX/0001.png" alt="0001.png"></a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Local Image Test&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;C:\Users\IvanZhang\ivanwzhangblog\source\_posts\0002.png&quot; alt=&quot;0002&quot;&gt;&lt;/p&gt;
-
+        &lt;p&gt;Local test&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://postimg.cc/HJbC66Yc&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;img src=&quot;https://i.postimg.cc/jjFdd1BX/0001.png&quot; 
       
     
     </summary>
