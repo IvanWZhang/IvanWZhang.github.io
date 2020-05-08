@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-08T01:43:46.507Z</updated>
+  <updated>2020-05-08T01:46:49.997Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://yoursite.com/2020/05/08/Local%20Image%20Test/"/>
     <id>http://yoursite.com/2020/05/08/Local%20Image%20Test/</id>
     <published>2020-05-08T01:43:46.422Z</published>
-    <updated>2020-05-08T01:43:46.507Z</updated>
+    <updated>2020-05-08T01:46:49.997Z</updated>
     
-    <content type="html"><![CDATA[<p>Local Image Test</p><p><img src="C:\Users\IvanZhang\Pictures\Coding\0002.png" alt="0002"></p>]]></content>
+    <content type="html"><![CDATA[<p>Local Image Test</p><p><img src="C:\Users\IvanZhang\ivanwzhangblog\source\_posts\0002.png" alt="0002"></p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;Local Image Test&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;C:\Users\IvanZhang\Pictures\Coding\0002.png&quot; alt=&quot;0002&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;C:\Users\IvanZhang\ivanwzhangblog\source\_posts\0002.png&quot; alt=&quot;0002&quot;&gt;&lt;/p&gt;
 
       
     
