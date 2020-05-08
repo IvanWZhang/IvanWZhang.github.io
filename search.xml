@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Local Image Test</title>
+    <url>/2020/05/08/Local%20Image%20Test/</url>
+    <content><![CDATA[<p>Local Image Test</p>
+<p><img src="C:\Users\IvanZhang\Pictures\Coding\0002.png" alt="0002"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>LeetCode 10- II. 青蛙跳台阶问题</title>
     <url>/2020/04/10/10-%20II.%20%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="10-II-青蛙跳台阶问题"><a href="#10-II-青蛙跳台阶问题" class="headerlink" title="10- II. 青蛙跳台阶问题"></a>10- II. 青蛙跳台阶问题</h1><p>NOTE: Also the same LeetCode <a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">70. Climbing Stairs</a></p>
